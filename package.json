@@ -1,0 +1,15 @@
+{
+  "name": "holidays-jp",
+  "version": "1.0.0",
+  "description": "get Japanese public holidays",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sasaplus1/holidays-jp.js.git"
+  },
+  "author": "sasa+1 <sasaplus1@gmail.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
