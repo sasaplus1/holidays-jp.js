@@ -1,4 +1,5 @@
 const csvParse = require('csv-parse');
+const prettier = require('prettier');
 const through2 = require('through2');
 
 const { convertToIso8601 } = require('./convert');
@@ -26,5 +27,10 @@ process.stdin
     });
   })
   .on('end', function() {
-    process.stdout.write(JSON.stringify({ holidays }));
+    process.stdout.write(
+      prettier.format(
+        `module.exports = ${JSON.stringify({ holidays }, null, 2)};`,
+        { filepath: 'data.js', parser: 'babel' }
+      )
+    );
   });

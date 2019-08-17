@@ -361,6 +361,11 @@ csv-parse@^4.4.5:
   resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-4.4.5.tgz#383255357a766c220be049e4f1f2c3016eb9ac66"
   integrity sha512-koPV9m9AjNJCK3ig4ErgRJalZsLxWI7NP0Fd3+CO9hgDZt3FSljTeESnfWTbyRc8qk/3/LgX1s5naDqLxiuK9w==
 
+csv-stringify@^5.3.3:
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/csv-stringify/-/csv-stringify-5.3.3.tgz#c4725686a33db9f61e70d87af712285baefebe21"
+  integrity sha512-q8Qj+/lN74LRmG7Mg0LauE5WcnJOD5MEGe1gI57IYJCB61KWuEbAFHm1uIPDkI26aqElyBB57SlE2GGwq2EY5A==
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -1262,6 +1267,11 @@ log-update@^2.3.0:
     ansi-escapes "^3.0.0"
     cli-cursor "^2.0.0"
     wrap-ansi "^3.0.1"
+
+ltsv@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ltsv/-/ltsv-1.1.0.tgz#7d81d53bdbf09228b1f94294280300f77da3d76b"
+  integrity sha512-8GkkVgF+yh5ppPY3w3CqEpb4pK+e+7Rs3pQljc1myBSoquqKlzf529QdncrDdahPP6JU/NSBzOWCJ4Tn8ehXuA==
 
 merge-stream@^2.0.0:
   version "2.0.0"

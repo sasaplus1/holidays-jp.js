@@ -1,9 +1,8 @@
 const csvParse = require('csv-parse');
+const ltsv = require('ltsv');
 const through2 = require('through2');
 
 const { convertToIso8601 } = require('./convert');
-
-const holidays = [];
 
 process.stdin
   .pipe(
@@ -20,11 +19,10 @@ process.stdin
   .on('data', function(data) {
     const { date, name } = data;
 
-    holidays.push({
-      date: convertToIso8601(date),
-      name
-    });
-  })
-  .on('end', function() {
-    process.stdout.write(JSON.stringify({ holidays }));
+    process.stdout.write(
+      ltsv.format({
+        date: convertToIso8601(date),
+        name
+      }) + '\n'
+    );
   });
