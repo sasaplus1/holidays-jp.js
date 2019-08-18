@@ -3,6 +3,9 @@
   "description": "get Japanese public holidays",
   "version": "1.0.0",
   "author": "sasa+1 <sasaplus1@gmail.com>",
+  "bin": {
+    "holiday": "./bin/holiday.js"
+  },
   "devDependencies": {
     "csv-parse": "^4.4.5",
     "csv-stringify": "^5.3.3",
@@ -22,6 +25,7 @@
     "through2": "^3.0.1"
   },
   "files": [
+    "bin/holiday.js",
     "data.*",
     "index.js"
   ],
