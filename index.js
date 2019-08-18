@@ -51,7 +51,7 @@ const holidayMap = holidays.reduce(function(result, holiday) {
  * @param {Date} date
  * @return {Object}
  */
-function getHoliday(date) {
+function getHolidayInfo(date) {
   if (toString.call(date) !== '[object Date]') {
     throw new TypeError('date must be a Date: ' + date);
   }
@@ -87,11 +87,11 @@ function isHoliday(date) {
     throw new TypeError('date must be a Date: ' + date);
   }
 
-  return getHoliday(date) !== null;
+  return getHolidayInfo(date) !== null;
 }
 
 module.exports = {
-  getHoliday,
+  getHolidayInfo,
   holidayMap,
   holidays,
   isHoliday
