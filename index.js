@@ -46,6 +46,37 @@ const holidayMap = holidays.reduce(function(result, holiday) {
 }, {});
 
 /**
+ * get holiday data
+ *
+ * @param {Date} date
+ * @return {Object}
+ */
+function getHoliday(date) {
+  if (toString.call(date) !== '[object Date]') {
+    throw new TypeError('date must be a Date: ' + date);
+  }
+
+  const jstDate = new Date(date.getTime() + jstOffset);
+
+  const m = jstDate.getUTCMonth() + 1;
+  const d = jstDate.getUTCDate();
+
+  const year = String(jstDate.getUTCFullYear());
+  const month = m < 10 ? `0${m}` : String(m);
+  const day = d < 10 ? `0${d}` : String(d);
+
+  if (
+    holidayMap[year] &&
+    holidayMap[year][month] &&
+    holidayMap[year][month][day]
+  ) {
+    return holidayMap[year][month][day];
+  }
+
+  return null;
+}
+
+/**
  * return true if date is holiday
  *
  * @param {Date} date
@@ -56,25 +87,11 @@ function isHoliday(date) {
     throw new TypeError('date must be a Date: ' + date);
   }
 
-  const time = date.getTime();
-
-  for (let holiday of holidays) {
-    const { startDate, endDate } = holiday;
-    const endTime = endDate.getTime();
-
-    if (startDate.getTime() <= time && endTime >= time) {
-      return true;
-    }
-
-    if (time > endTime) {
-      break;
-    }
-  }
-
-  return false;
+  return getHoliday(date) !== null;
 }
 
 module.exports = {
+  getHoliday,
   holidayMap,
   holidays,
   isHoliday
