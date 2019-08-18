@@ -36,16 +36,16 @@ holidays.getHolidayInfo(date); // => { date: '2019-01-01', name: '元日', ... }
 
 ### CLI
 
-holiday-jp.js has CLI command:
+holidays-jp.js has CLI command:
 
 ```console
-$ npx holiday '2019-01-01T00:00:00+09:00'
+$ npx holidays-jp '2019-01-01T00:00:00+09:00'
 $ echo $?
 0
 ```
 
 ```console
-$ npx holiday '2019-01-02T00:00:00+09:00'
+$ npx holidays-jp '2019-01-02T00:00:00+09:00'
 $ echo $?
 1
 ```
