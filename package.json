@@ -18,7 +18,10 @@
     "request": "^2.88.0",
     "through2": "^3.0.1"
   },
-  "files": [],
+  "files": [
+    "data.*",
+    "index.js"
+  ],
   "license": "MIT",
   "main": "index.js",
   "readmeFilename": "README.md",
