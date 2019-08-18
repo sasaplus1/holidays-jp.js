@@ -1,5 +1,7 @@
 # holidays-jp.js
 
+[![renovate](https://badges.renovateapi.com/github/sasaplus1/holidays-jp.js)](https://renovatebot.com)
+
 get Japanese public holidays
 
 ## Installation
