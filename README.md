@@ -1,5 +1,6 @@
 # holidays-jp.js
 
+[![npm version](https://badge.fury.io/js/holidays-jp.svg)](https://badge.fury.io/js/holidays-jp)
 [![renovate](https://badges.renovateapi.com/github/sasaplus1/holidays-jp.js)](https://renovatebot.com)
 
 get Japanese public holidays
