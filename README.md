@@ -34,6 +34,22 @@ const date = new Date(2019, 1 - 1, 1, 0, 0, 0, 0);
 holidays.getHolidayInfo(date); // => { date: '2019-01-01', name: '元日', ... }
 ```
 
+### CLI
+
+holiday-jp.js has CLI command:
+
+```console
+$ npx holiday '2019-01-01T00:00:00+09:00'
+$ echo $?
+0
+```
+
+```console
+$ npx holiday '2019-01-02T00:00:00+09:00'
+$ echo $?
+1
+```
+
 ## holidays data
 
 holidays-jp.js has some format holidays data, it converted from [syukujitsu.csv](https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv):

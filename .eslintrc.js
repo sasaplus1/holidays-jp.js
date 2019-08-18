@@ -14,6 +14,12 @@ module.exports = {
         mocha: true
       },
       files: ['**/*.test.js']
+    },
+    {
+      files: ['bin/**/*.js'],
+      rules: {
+        'no-process-exit': 'off'
+      }
     }
   ],
   parserOptions: {
