@@ -7,6 +7,10 @@
     "holiday": "./bin/holiday.js"
   },
   "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.7.2",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
     "csv-parse": "^4.4.5",
     "csv-stringify": "^5.3.3",
     "eslint": "^6.1.0",
@@ -22,7 +26,8 @@
     "prettier": "^1.18.2",
     "request": "^2.88.0",
     "rimraf": "^3.0.0",
-    "through2": "^3.0.1"
+    "through2": "^3.0.1",
+    "typescript": "^3.5.3"
   },
   "files": [
     "bin/holiday.js",
