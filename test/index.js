@@ -1,8 +1,8 @@
 const assert = require('assert');
 
-const { getHolidayInfo, isHoliday } = require('./');
+const { getHolidayInfo, isHoliday } = require('../');
 
-const { name } = require('./package');
+const { name } = require('../package');
 
 describe(name, function() {
   const jstOffset = 1000 * 60 * 60 * 9;

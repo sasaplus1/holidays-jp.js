@@ -55,6 +55,6 @@
     "postgenerate": "rimraf ./syukujitsu.csv",
     "postgenerate:js": "prettier --write ./data.js",
     "pregenerate": "yarn run --silent download > ./syukujitsu.csv",
-    "test": "mocha ./index.test.js"
+    "test": "mocha"
   }
 }
