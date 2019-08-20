@@ -64,6 +64,7 @@ describe('data', function() {
 
     fs.createReadStream(require.resolve('../data.ltsv')).pipe(parser);
   });
+  it('should can parse ES Module');
   it('should can parse TSV', function(done) {
     const parser = csvParse({
       delimiter: '\t'
