@@ -1,10 +1,8 @@
-const assert = require('assert');
+import assert = require('assert');
 
-const { getHolidayInfo, isHoliday } = require('../');
+import { getHolidayInfo, isHoliday } from '../';
 
-const { name } = require('../package');
-
-describe(name, function() {
+describe('holidays-jp', function() {
   const jstOffset = 1000 * 60 * 60 * 9;
 
   describe('getHolidayInfo', function() {

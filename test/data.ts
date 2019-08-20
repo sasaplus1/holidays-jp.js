@@ -1,8 +1,13 @@
-const assert = require('assert');
-const fs = require('fs');
+/* eslint-disable @typescript-eslint/no-var-requires */
 
-const csvParse = require('csv-parse');
+import assert = require('assert');
+import * as fs from 'fs';
+
+import * as csvParse from 'csv-parse';
+
 const ltsv = require('ltsv');
+
+import { Holiday } from '../data';
 
 describe('data', function() {
   it('should can parse CSV', function(done) {
@@ -21,30 +26,26 @@ describe('data', function() {
     fs.createReadStream(require.resolve('../data.csv')).pipe(parser);
   });
   it('should can parse JavaScript', function() {
-    let data;
-
     assert.doesNotThrow(function() {
-      data = require('../data.js');
+      const data: { holidays: Holiday[] } = require('../data.js');
+
+      const { holidays } = data;
+
+      for (const holiday of holidays) {
+        assert(Object.keys(holiday).length === 2);
+      }
     });
-
-    const { holidays } = data;
-
-    for (let holiday of holidays) {
-      assert(Object.keys(holiday).length === 2);
-    }
   });
   it('should can parse JSON', function() {
-    let data;
-
     assert.doesNotThrow(function() {
-      data = require('../data.json');
+      const data: { holidays: Holiday[] } = require('../data.json');
+
+      const { holidays } = data;
+
+      for (const holiday of holidays) {
+        assert(Object.keys(holiday).length === 2);
+      }
     });
-
-    const { holidays } = data;
-
-    for (let holiday of holidays) {
-      assert(Object.keys(holiday).length === 2);
-    }
   });
   it('should can parse LTSV', function(done) {
     const parser = ltsv.createLtsvToJsonStream({
@@ -79,5 +80,16 @@ describe('data', function() {
     parser.on('end', done);
 
     fs.createReadStream(require.resolve('../data.tsv')).pipe(parser);
+  });
+  it('should can parse TypeScript', function() {
+    assert.doesNotThrow(function() {
+      const data: { holidays: Holiday[] } = require('../data.ts');
+
+      const { holidays } = data;
+
+      for (const holiday of holidays) {
+        assert(Object.keys(holiday).length === 2);
+      }
+    });
   });
 });
