@@ -51,7 +51,7 @@
     "download": "node ./npm_script/download.js",
     "fix": "eslint --cache --fix --ext .js,.ts .",
     "fixpack": "npx fixpack",
-    "generate": "run-p 'generate:*'",
+    "generate": "run-p generate:*",
     "generate:csv": "yarn run -s convert:csv < ./syukujitsu.csv > ./data.csv",
     "generate:js": "yarn run -s convert:js < ./syukujitsu.csv > ./data.js",
     "generate:json": "yarn run -s convert:json < ./syukujitsu.csv > ./data.json",
