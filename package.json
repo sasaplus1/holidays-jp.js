@@ -4,8 +4,10 @@
   "version": "1.1.0",
   "author": "sasa+1 <sasaplus1@gmail.com>",
   "bin": {
-    "holiday": "./bin/holiday.js"
+    "holiday": "bin/holidays-jp.js",
+    "holidays-jp": "bin/holidays-jp.js"
   },
+  "browser": "dist/holidays-jp.js",
   "devDependencies": {
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.2",
@@ -35,12 +37,16 @@
     "typescript": "^3.5.3"
   },
   "files": [
-    "bin/holiday.js",
+    "bin/holidays-jp.js",
     "data.*",
-    "index.js"
+    "index.d.ts",
+    "index.js",
+    "index.js.map",
+    "index.mjs"
   ],
   "license": "MIT",
   "main": "index.js",
+  "module": "index.mjs",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
@@ -67,5 +73,7 @@
     "postgenerate:ts": "prettier --parser typescript --write ./data.ts",
     "pregenerate": "run-s -s download > ./syukujitsu.csv",
     "test": "mocha"
-  }
+  },
+  "sideEffects": false,
+  "types": "index.d.ts"
 }
