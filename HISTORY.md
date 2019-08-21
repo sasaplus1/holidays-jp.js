@@ -1,3 +1,9 @@
+# 1.2.0 / 2019-08-22
+
+- rewrite codebase to TypeScript
+- add ES Module format and UMD format scripts
+- improve metadata for script bundler
+
 # 1.1.0 / 2019-08-19
 
 - add CLI command
