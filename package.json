@@ -46,6 +46,7 @@
     "url": "https://github.com/sasaplus1/holidays-jp.js.git"
   },
   "scripts": {
+    "check-types": "tsc --noEmit ./index.ts",
     "download": "node ./npm_script/download.js",
     "fix": "eslint --cache --fix --ext .js,.ts .",
     "fixpack": "npx fixpack",
