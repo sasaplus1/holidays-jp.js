@@ -1,10 +1,11 @@
+import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript';
 
-import { compilerOptions } from './tsconfig';
+import meta from './package.json';
 
 const config = [];
 
-if (process.env.data) {
+if (process.env.data === 'esm') {
   config.push(
     {
       input: './data.ts',
@@ -14,23 +15,104 @@ if (process.env.data) {
       },
       plugins: [
         typescript({
-          ...compilerOptions,
           module: 'ESNext',
+          newLine: 'lf',
+          strict: true,
           target: 'ESNext'
         })
       ]
     },
     {
-      input: './data.ts',
+      input: './index.ts',
       output: {
-        file: './data.js',
-        format: 'cjs'
+        file: './index.mjs',
+        format: 'esm'
       },
       plugins: [
         typescript({
-          ...compilerOptions,
           module: 'ESNext',
+          newLine: 'lf',
+          strict: true,
           target: 'ESNext'
+        })
+      ]
+    }
+  );
+}
+
+if (process.env.data === 'umd') {
+  config.push(
+    {
+      input: './index.ts',
+      output: {
+        file: `./dist/${meta.name}.js`,
+        format: 'umd',
+        name: meta.name,
+        sourcemap: true
+      },
+      plugins: [
+        typescript({
+          newLine: 'lf',
+          strict: true,
+          sourceMap: true,
+          target: 'ESNext'
+        })
+      ]
+    },
+    {
+      input: './index.ts',
+      output: {
+        file: `./dist/${meta.name}.min.js`,
+        format: 'umd',
+        name: meta.name,
+        sourcemap: true
+      },
+      plugins: [
+        typescript({
+          newLine: 'lf',
+          strict: true,
+          sourceMap: true,
+          target: 'ESNext'
+        }),
+        terser({
+          sourcemap: true
+        })
+      ]
+    },
+    {
+      input: './index.ts',
+      output: {
+        file: `./dist/${meta.name}.legacy.js`,
+        format: 'umd',
+        name: meta.name,
+        sourcemap: true
+      },
+      plugins: [
+        typescript({
+          newLine: 'lf',
+          strict: true,
+          sourceMap: true,
+          target: 'ES5'
+        })
+      ]
+    },
+    {
+      input: './index.ts',
+      output: {
+        file: `./dist/${meta.name}.legacy.min.js`,
+        format: 'umd',
+        name: meta.name,
+        sourcemap: true
+      },
+      plugins: [
+        typescript({
+          newLine: 'lf',
+          strict: true,
+          sourceMap: true,
+          target: 'ES5'
+        }),
+        terser({
+          sourcemap: true
         })
       ]
     }
