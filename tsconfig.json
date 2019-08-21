@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "module": "CommonJS",
     "newLine": "lf",
-    "sourceMap": true,
     "strict": true
   }
 }
