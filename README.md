@@ -65,6 +65,14 @@ const tsv = fs.readFileSync(require.resolve('holidays-jp/data.tsv'), 'utf8');
 const ltsv = fs.readFileSync(require.resolve('holidays-jp/data.ltsv'), 'utf8');
 ```
 
+```js
+import data from 'holidays-jp/data.mjs';
+```
+
+```ts
+import data from 'holidays-jp/data.ts';
+```
+
 ### Related
 
 [「国民の祝日」について](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html)
