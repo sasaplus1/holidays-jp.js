@@ -51,19 +51,14 @@
     "fixpack": "npx fixpack",
     "generate": "run-p -l generate:*",
     "generate:csv": "node ./npm_script/csv_to_csv.js < ./syukujitsu.csv > ./data.csv",
-    "generate:js": "node ./npm_script/csv_to_js.js < ./syukujitsu.csv > ./data.js",
     "generate:json": "node ./npm_script/csv_to_json.js < ./syukujitsu.csv > ./data.json",
     "generate:ltsv": "node ./npm_script/csv_to_ltsv.js < ./syukujitsu.csv > ./data.ltsv",
-    "generate:mjs": "rollup -c --environment data",
     "generate:ts": "node ./npm_script/csv_to_ts.js < ./syukujitsu.csv > ./data.ts",
     "generate:tsv": "node ./npm_script/csv_to_tsv.js < ./syukujitsu.csv > ./data.tsv",
     "lint": "eslint --cache --ext .js,.ts .",
     "postgenerate": "rimraf ./syukujitsu.csv",
-    "postgenerate:js": "prettier --parser babel --write ./data.js",
-    "postgenerate:mjs": "prettier --parser babel --write ./data.mjs",
     "postgenerate:ts": "prettier --parser typescript --write ./data.ts",
     "pregenerate": "run-s -s download > ./syukujitsu.csv",
-    "pregenerate:mjs": "run-s generate:ts",
     "test": "mocha"
   }
 }
