@@ -4,6 +4,10 @@
     "module": "CommonJS",
     "newLine": "lf",
     "sourceMap": true,
-    "strict": true
-  }
+    "strict": true,
+    "target": "ESNext"
+  },
+  "files": [
+    "index.ts"
+  ]
 }
