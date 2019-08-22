@@ -22,6 +22,10 @@
     "espower-typescript": "^9.0.2",
     "husky": "^3.0.3",
     "iconv-lite": "^0.5.0",
+    "karma": "^4.2.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-mocha": "^1.3.0",
+    "karma-rollup-preprocessor": "^7.0.2",
     "lint-staged": "^9.2.1",
     "ltsv": "^1.1.0",
     "mocha": "^6.2.0",
@@ -72,7 +76,8 @@
     "postgenerate": "rimraf ./syukujitsu.csv",
     "postgenerate:ts": "prettier --parser typescript --write ./data.ts",
     "pregenerate": "run-s -s download > ./syukujitsu.csv",
-    "test": "mocha"
+    "test": "mocha",
+    "test:browser": "karma --single-run"
   },
   "sideEffects": false,
   "types": "index.d.ts"
