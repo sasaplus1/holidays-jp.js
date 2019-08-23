@@ -4,7 +4,7 @@ on:
   schedule:
     # at AM 7:10 on Wednesday, JST
     # - cron: '10 22 * * 2'
-    - cron: '35 * * * *'
+    - cron: '50 * * * *'
 
 jobs:
   update:
@@ -25,6 +25,8 @@ jobs:
           if ! git diff --exit-code >/dev/null 2>&1
           then
             sudo snap install hub --classic
+            git config --global user.email '44036562+actions@users.noreply.github.com'
+            git config --global user.name 'GitHub Actions'
             git checkout -b "github-actions/update-data-$(date +%F)"
             git add --all .
             git commit --message 'update data files'
