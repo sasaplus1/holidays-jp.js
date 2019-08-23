@@ -33,12 +33,9 @@ jobs:
           fi
       - run: git rev-parse --abbrev-ref HEAD
         id: branch
-      - run: echo $A $B $C $D
+      - run: echo $A
         env:
-          A: ${{ toJson(job) }}
-          B: ${{ toJson(steps) }}
-          C: ${{ toJson(github) }}
-          D: ${{ toJson(runner) }}
+          A: ${{ toJson(jobs.update.steps) }}
       - uses: wei/pull-request@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
