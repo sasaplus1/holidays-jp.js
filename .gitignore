@@ -91,4 +91,9 @@ typings/
 
 ### holidays-jp.js
 
+# GoogleChrome profile directory, execute from karma
 .chrome/
+
+# GitHub Pages
+# $ git worktree docs gh-pages
+docs/
