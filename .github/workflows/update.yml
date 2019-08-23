@@ -4,7 +4,7 @@ on:
   schedule:
     # at AM 7:10 on Wednesday, JST
     # - cron: '10 22 * * 2'
-    - cron: '10 * * * *'
+    - cron: '20 * * * *'
 
 jobs:
   update:
@@ -24,7 +24,7 @@ jobs:
       - run: |
           if ! git diff --exit-code >/dev/null 2>&1
           then
-            apt install --yes hub
+            sudo apt-get install --yes hub
             git checkout -b "github-actions/update-data-$(date +%F)"
             git add --all .
             git commit --message 'update data files'
