@@ -25,12 +25,13 @@ jobs:
       - run: |
           if ! git diff --exit-code >/dev/null 2>&1
           then
-            snap install hub --classic
+            sudo snap install hub --classic
             git config --global user.email '44036562+actions@users.noreply.github.com'
             git config --global user.name 'GitHub Actions'
             git checkout -b github-actions/update-data
             git add --all .
             git commit --message 'update data files'
+            sudo chown root /
             hub pull-request --push --base master --head github-actions/update-data --message 'update holidays data'
           fi
         env:
