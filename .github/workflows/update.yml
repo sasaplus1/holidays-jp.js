@@ -37,6 +37,9 @@ jobs:
         env:
           A: ${{ toJson(job) }}
           B: ${{ toJson(steps) }}
+          C: ${{ toJson(jobs) }}
+          D: ${{ toJson(github) }}
+          E: ${{ toJson(runner) }}
       - uses: wei/pull-request@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
