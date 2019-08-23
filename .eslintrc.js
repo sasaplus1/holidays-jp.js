@@ -35,12 +35,6 @@ module.exports = {
       rules: {
         'node/no-unsupported-features/es-syntax': 'off'
       }
-    },
-    {
-      files: ['bin/**/*.js'],
-      rules: {
-        'no-process-exit': 'off'
-      }
     }
   ],
   parserOptions: {
