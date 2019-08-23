@@ -25,7 +25,7 @@ jobs:
       - run: |
           if ! git diff --exit-code >/dev/null 2>&1
           then
-            sudo snap install hub --classic
+            snap install hub --classic
             git config --global user.email '44036562+actions@users.noreply.github.com'
             git config --global user.name 'GitHub Actions'
             git checkout -b github-actions/update-data
