@@ -27,19 +27,16 @@ jobs:
           then
             git config --global user.email '44036562+actions@users.noreply.github.com'
             git config --global user.name 'GitHub Actions'
-            git checkout -b "github-actions/update-data-$(date +%F)"
+            git checkout -b 'github-actions/update-data'
             git add --all .
             git commit --message 'update data files'
           fi
       - run: git rev-parse --abbrev-ref HEAD
         id: branch
-      - run: echo $A
-        env:
-          A: ${{ toJson(jobs.update.steps) }}
       - uses: wei/pull-request@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DESTINATION_BRANCH: master
-          SOURCE_BRANCH: ${{ steps.update.outputs.branch }}
+          SOURCE_BRANCH: github-actions/update-data
           PR_TITLE: update holidays data
           HUB_VERBOSE: 1
