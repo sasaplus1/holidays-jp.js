@@ -21,12 +21,14 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run generate
       - run: yarn run build
-      - run: git diff --exit-code
-      - uses: peter-evans/create-pull-request@v1.1.1
-        if: failure()
+      - run: |
+          if ! git diff --exit-code >/dev/null 2>&1
+          then
+            apt install --yes hub
+            git checkout -b "github-actions/update-data-$(date +%F)"
+            git add --all .
+            git commit --message 'update data files'
+            hub pull-request --message 'update holidays data'
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-          PULL_REQUEST_BRANCH: github-actions/update-data
-          COMMIT_MESSAGE: update data files
-          PULL_REQUEST_TITLE: update holidays data
