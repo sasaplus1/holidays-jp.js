@@ -3,7 +3,8 @@ name: update
 on:
   schedule:
     # at AM 7:10 on Wednesday, JST
-    - cron: '10 22 * * 3'
+    # - cron: '10 22 * * 2'
+    - cron: '10 * * * *'
 
 jobs:
   update:
