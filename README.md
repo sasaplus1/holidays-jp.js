@@ -38,7 +38,7 @@ holidays.getHolidayInfo(date); // => { date: '2019-01-01', name: '元日', ... }
 
 ## Functions
 
-see [documents](https://sasaplus1.github.io/holidays-jp.js/typedoc)
+see [documents](https://sasaplus1.github.io/holidays-jp.js)
 
 ### CLI
 
