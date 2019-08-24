@@ -4,7 +4,7 @@
   "excludePrivate": true,
   "excludeProtected": true,
   "mode": "modules",
-  "out": "docs/typedoc",
+  "out": "docs",
   "readme": "none",
   "theme": "minimal"
 }
