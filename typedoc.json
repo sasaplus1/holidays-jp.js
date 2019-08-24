@@ -1,0 +1,10 @@
+{
+  "excludeExternals": true,
+  "excludeNotExported": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "mode": "modules",
+  "out": "docs/typedoc",
+  "readme": "none",
+  "theme": "minimal"
+}
