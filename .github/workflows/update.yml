@@ -1,10 +1,8 @@
 name: update
 
-on:
-  schedule:
-    # at AM 7:10 on Wednesday, JST
-    # - cron: '10 22 * * 2'
-    - cron: '10 * * * *'
+schedule:
+  # at AM 6:50 on Saturday, JST
+  - cron: '50 21 * * 5'
 
 jobs:
   update:
@@ -21,12 +19,24 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run generate
       - run: yarn run build
-      - run: git diff --exit-code
-      - uses: peter-evans/create-pull-request@v1.1.1
-        if: failure()
+      - run: |
+          if ! git diff --exit-code >/dev/null 2>&1
+          then
+            git config --global user.email '<>'
+            git config --global user.name 'GitHub Actions'
+            git checkout -b $BRANCH
+            git add --all .
+            git commit --message 'update data files'
+            git push $REMOTE $BRANCH
+          fi
+        env:
+          REMOTE: https://${{ secrets.REPOSITORY_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
+          BRANCH: github-actions/update-data
+      - uses: wei/pull-request@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-          PULL_REQUEST_BRANCH: github-actions/update-data
-          COMMIT_MESSAGE: update data files
-          PULL_REQUEST_TITLE: update holidays data
+          DESTINATION_BRANCH: master
+          SOURCE_BRANCH: github-actions/update-data
+          PR_TITLE: update holidays data
+          PR_REVIEWER: sasaplus1
+          PR_ASSIGNEE: sasaplus1
