@@ -33,7 +33,7 @@ jobs:
             git push $REMOTE $BRANCH
           fi
         env:
-          REMOTE: https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          REMOTE: https://${{ secrets.REPO_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
           BRANCH: github-actions/update-data
       - uses: wei/pull-request@v1
         env:
