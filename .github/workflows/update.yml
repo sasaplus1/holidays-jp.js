@@ -31,6 +31,9 @@ jobs:
             git checkout -b github-actions/update-data
             git add --all .
             git commit --message 'update data files'
+            echo
+            echo
+            echo
             sudo hub pull-request --push --message 'update holidays data'
           fi
         env:
