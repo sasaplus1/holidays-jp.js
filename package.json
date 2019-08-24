@@ -59,6 +59,7 @@
   },
   "scripts": {
     "build": "run-p -l build:*",
+    "build-documents": "typedoc",
     "build:cjs": "tsc",
     "build:esm": "rollup -c --environment data:esm",
     "build:umd": "rollup -c --environment data:umd",
