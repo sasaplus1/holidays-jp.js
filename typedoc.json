@@ -1,4 +1,5 @@
 {
+  "disableOutputCheck": true,
   "excludeExternals": true,
   "excludeNotExported": true,
   "excludePrivate": true,
