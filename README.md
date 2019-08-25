@@ -16,6 +16,12 @@ get Japanese public holidays
 $ npm install holidays-jp
 ```
 
+### yarn
+
+```console
+$ yarn add holidays-jp
+```
+
 ## Usage
 
 ```js
@@ -52,6 +58,16 @@ $ echo $?
 
 ```console
 $ npx holidays-jp '2019-01-02T00:00:00+09:00'
+$ echo $?
+1
+```
+
+use current time if don't pass argument:
+
+```console
+$ date +%FT%T
+2019-08-25T03:09:59
+$ npx holidays-jp
 $ echo $?
 1
 ```
