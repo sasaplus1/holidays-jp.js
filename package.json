@@ -78,6 +78,7 @@
     "postgenerate": "rimraf ./syukujitsu.csv",
     "postgenerate:ts": "prettier --parser typescript --write ./data.ts",
     "pregenerate": "run-s -s download > ./syukujitsu.csv",
+    "pretest": "run-s build:cjs",
     "test": "mocha",
     "test:browser": "karma --single-run"
   },
