@@ -80,7 +80,7 @@
     "pregenerate": "run-s -s download > ./syukujitsu.csv",
     "pretest": "run-s build:cjs",
     "test": "mocha",
-    "test:browser": "karma --single-run"
+    "test:browser": "karma start --single-run"
   },
   "sideEffects": false,
   "types": "index.d.ts"
