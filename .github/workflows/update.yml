@@ -3,8 +3,7 @@ name: update
 on:
   schedule:
     # at AM 6:50 on Saturday, JST
-    # - cron: '50 21 * * 5'
-    - cron: '*/5 * * * *'
+    - cron: '50 21 * * 5'
 
 jobs:
   update:
@@ -24,18 +23,21 @@ jobs:
       - run: |
           if ! git diff --exit-code >/dev/null 2>&1
           then
-            # create branch
             git config --global user.email '<>'
             git config --global user.name 'GitHub Actions'
             git checkout -b $BRANCH
             git add --all .
             git commit --message 'update data files'
-            git push $REMOTE $BRANCH
-            # create pull-request
-            sudo snap install --classic hub
-            hub pull-request -b master -h $BRANCH -r sasaplus1 -a sasaplus1 -m 'update holidays data'
+            git push --force --quiet $REMOTE $BRANCH
           fi
         env:
           REMOTE: https://${{ secrets.REPOSITORY_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
           BRANCH: github-actions/update-data
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # - uses: repo-sync/pull-request@v2
+    #   with:
+    #     source_branch: github-actions/update-data
+    #     destination_branch: master
+    #     pr_title: update holidays data
+    #     pr_reviewer: sasaplus1
+    #     pr_assignee: sasaplus1
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
