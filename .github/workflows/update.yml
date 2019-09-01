@@ -4,7 +4,7 @@ on:
   schedule:
     # at AM 6:50 on Saturday, JST
     # - cron: '50 21 * * 5'
-    - cron: '50 21 * * *'
+    - cron: '50 * * * *'
 
 jobs:
   update:
@@ -34,11 +34,11 @@ jobs:
         env:
           REMOTE: https://${{ secrets.REPOSITORY_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
           BRANCH: github-actions/update-data
-      - uses: wei/pull-request@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DESTINATION_BRANCH: master
-          SOURCE_BRANCH: github-actions/update-data
-          PR_TITLE: update holidays data
-          PR_REVIEWER: sasaplus1
-          PR_ASSIGNEE: sasaplus1
+      - uses: repo-sync/pull-request@v2
+        with:
+          source_branch: github-actions/update-data
+          destination_branch: master
+          pr_title: update holidays data
+          pr_reviewer: sasaplus1
+          pr_assignee: sasaplus1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
