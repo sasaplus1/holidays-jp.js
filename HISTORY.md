@@ -1,3 +1,7 @@
+# 1.2.1 / 2019-09-18
+
+- update holidays data
+
 # 1.2.0 / 2019-08-22
 
 - rewrite codebase to TypeScript
