@@ -1,7 +1,7 @@
 {
   "name": "holidays-jp",
   "description": "get Japanese public holidays",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "sasa+1 <sasaplus1@gmail.com>",
   "bin": {
     "holiday": "bin/holidays-jp.js",
