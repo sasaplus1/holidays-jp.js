@@ -38,7 +38,7 @@
     "rollup-plugin-terser": "^5.1.1",
     "rollup-plugin-typescript": "^1.0.1",
     "through2": "^3.0.1",
-    "typedoc": "^0.16.0",
+    "typedoc": "^0.17.0",
     "typescript": "^3.5.3"
   },
   "files": [
