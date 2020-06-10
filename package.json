@@ -35,7 +35,7 @@
     "request": "^2.88.0",
     "rimraf": "^3.0.0",
     "rollup": "^2.0.0",
-    "rollup-plugin-terser": "^5.1.1",
+    "rollup-plugin-terser": "^6.0.0",
     "rollup-plugin-typescript": "^1.0.1",
     "through2": "^3.0.1",
     "typedoc": "^0.17.0",
