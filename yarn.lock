@@ -2382,10 +2382,10 @@ log4js@^4.0.0:
     rfdc "^1.1.4"
     streamroller "^1.0.6"
 
-ltsv@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/ltsv/-/ltsv-1.1.0.tgz#7d81d53bdbf09228b1f94294280300f77da3d76b"
-  integrity sha512-8GkkVgF+yh5ppPY3w3CqEpb4pK+e+7Rs3pQljc1myBSoquqKlzf529QdncrDdahPP6JU/NSBzOWCJ4Tn8ehXuA==
+ltsv@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ltsv/-/ltsv-2.0.0.tgz#793089248c3085333d3679f7911f2f035d9a33d5"
+  integrity sha512-GHuxtVXN2n3nIdoTAb8SoNsTGAyfvLhqQ+vgowQUp2oHD8kWtj3HQFGhbP0opvABvbIDoBNt7MTXFZZtCyV3Pw==
 
 lunr@^2.3.8:
   version "2.3.8"
