@@ -7,7 +7,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (global = global || self, factory(global['holidays-jp'] = {}));
-}(this, function (exports) { 'use strict';
+}(this, (function (exports) { 'use strict';
 
   var holidays = [
       {
@@ -3815,12 +3815,20 @@
           name: 'こどもの日'
       },
       {
-          date: '2021-07-19',
+          date: '2021-07-22',
           name: '海の日'
       },
       {
-          date: '2021-08-11',
+          date: '2021-07-23',
+          name: 'スポーツの日'
+      },
+      {
+          date: '2021-08-08',
           name: '山の日'
+      },
+      {
+          date: '2021-08-09',
+          name: '休日'
       },
       {
           date: '2021-09-20',
@@ -3829,10 +3837,6 @@
       {
           date: '2021-09-23',
           name: '秋分の日'
-      },
-      {
-          date: '2021-10-11',
-          name: 'スポーツの日'
       },
       {
           date: '2021-11-03',
@@ -3913,5 +3917,5 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));
 //# sourceMappingURL=holidays-jp.legacy.js.map
