@@ -8,7 +8,7 @@ const parameter = querystring.stringify({
 });
 const URL = `https://www.data.go.jp/data/api/action/resource_show?${parameter}`;
 
-request(URL, function(error, response, body) {
+request(URL, function (error, response, body) {
   if (error) {
     throw error;
   }

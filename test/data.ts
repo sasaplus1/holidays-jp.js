@@ -9,11 +9,11 @@ const ltsv = require('ltsv');
 
 import { Holiday } from '../data';
 
-describe('data', function() {
-  it('should can parse CSV', function(done) {
+describe('data', function () {
+  it('should can parse CSV', function (done) {
     const parser = csvParse();
 
-    parser.on('readable', function() {
+    parser.on('readable', function () {
       let record;
 
       while ((record = parser.read())) {
@@ -25,8 +25,8 @@ describe('data', function() {
 
     fs.createReadStream(require.resolve('../data.csv')).pipe(parser);
   });
-  it('should can parse JavaScript', function() {
-    assert.doesNotThrow(function() {
+  it('should can parse JavaScript', function () {
+    assert.doesNotThrow(function () {
       const data: { holidays: Holiday[] } = require('../data.js');
 
       const { holidays } = data;
@@ -36,8 +36,8 @@ describe('data', function() {
       }
     });
   });
-  it('should can parse JSON', function() {
-    assert.doesNotThrow(function() {
+  it('should can parse JSON', function () {
+    assert.doesNotThrow(function () {
       const data: { holidays: Holiday[] } = require('../data.json');
 
       const { holidays } = data;
@@ -47,12 +47,12 @@ describe('data', function() {
       }
     });
   });
-  it('should can parse LTSV', function(done) {
+  it('should can parse LTSV', function (done) {
     const parser = ltsv.createLtsvToJsonStream({
       objectMode: true
     });
 
-    parser.on('readable', function() {
+    parser.on('readable', function () {
       let record;
 
       while ((record = parser.read())) {
@@ -65,12 +65,12 @@ describe('data', function() {
     fs.createReadStream(require.resolve('../data.ltsv')).pipe(parser);
   });
   it('should can parse ES Module');
-  it('should can parse TSV', function(done) {
+  it('should can parse TSV', function (done) {
     const parser = csvParse({
       delimiter: '\t'
     });
 
-    parser.on('readable', function() {
+    parser.on('readable', function () {
       let record;
 
       while ((record = parser.read())) {
@@ -82,8 +82,8 @@ describe('data', function() {
 
     fs.createReadStream(require.resolve('../data.tsv')).pipe(parser);
   });
-  it('should can parse TypeScript', function() {
-    assert.doesNotThrow(function() {
+  it('should can parse TypeScript', function () {
+    assert.doesNotThrow(function () {
       const data: { holidays: Holiday[] } = require('../data.ts');
 
       const { holidays } = data;

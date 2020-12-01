@@ -16,7 +16,7 @@ process.stdin
       objectMode: true
     })
   )
-  .on('data', function(data) {
+  .on('data', function (data) {
     const { date, name } = data;
 
     process.stdout.write(
