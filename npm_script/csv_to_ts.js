@@ -18,7 +18,7 @@ process.stdin
       objectMode: true
     })
   )
-  .on('data', function(data) {
+  .on('data', function (data) {
     const { date, name } = data;
 
     holidays.push({
@@ -26,7 +26,7 @@ process.stdin
       name
     });
   })
-  .on('end', function() {
+  .on('end', function () {
     process.stdout.write(
       prettier.format(
         [

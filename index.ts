@@ -19,10 +19,10 @@ const toString = Object.prototype.toString;
 const jstOffset = 1000 * 60 * 60 * 9;
 
 // NOTE: maybe faster than before reverse array when if use Array#filter, Array#find and etc.
-export const holidays = baseHolidays.reverse().map(function(holiday) {
+export const holidays = baseHolidays.reverse().map(function (holiday) {
   const { date, name } = holiday;
 
-  const [year, month, day] = date.split('-').map(num => parseInt(num, 10));
+  const [year, month, day] = date.split('-').map((num) => parseInt(num, 10));
 
   const startDate = new Date(
     Date.UTC(year, month - 1, day, 0, 0, 0, 0) - jstOffset
@@ -39,7 +39,7 @@ export const holidays = baseHolidays.reverse().map(function(holiday) {
   };
 });
 
-export const holidayMap: HolidayMap = holidays.reduce(function(
+export const holidayMap: HolidayMap = holidays.reduce(function (
   result: HolidayMap,
   holiday
 ) {
