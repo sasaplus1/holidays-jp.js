@@ -3841,9 +3841,9 @@ const toString = Object.prototype.toString;
 // NOTE: JST is UTC+9:00
 const jstOffset = 1000 * 60 * 60 * 9;
 // NOTE: maybe faster than before reverse array when if use Array#filter, Array#find and etc.
-const holidays$1 = holidays.reverse().map(function(holiday) {
+const holidays$1 = holidays.reverse().map(function (holiday) {
   const { date, name } = holiday;
-  const [year, month, day] = date.split('-').map(num => parseInt(num, 10));
+  const [year, month, day] = date.split('-').map((num) => parseInt(num, 10));
   const startDate = new Date(
     Date.UTC(year, month - 1, day, 0, 0, 0, 0) - jstOffset
   );
@@ -3857,7 +3857,7 @@ const holidays$1 = holidays.reverse().map(function(holiday) {
     startDate
   };
 });
-const holidayMap = holidays$1.reduce(function(result, holiday) {
+const holidayMap = holidays$1.reduce(function (result, holiday) {
   const { date } = holiday;
   const [year, month, day] = date.split('-');
   if (!result[year]) {
