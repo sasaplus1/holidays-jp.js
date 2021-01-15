@@ -1,14 +1,14 @@
 import { Holiday, holidays as baseHolidays } from './data';
 
-type HolidayEx = Holiday & {
+export type HolidayInfo = Holiday & {
   endDate: Date;
   startDate: Date;
 };
 
-type HolidayMap = {
+export type HolidayMap = {
   [key: string]: {
     [key: string]: {
-      [key: string]: HolidayEx;
+      [key: string]: HolidayInfo;
     };
   };
 };
@@ -18,7 +18,7 @@ const toString = Object.prototype.toString;
 // NOTE: JST is UTC+9:00
 const jstOffset = 1000 * 60 * 60 * 9;
 
-// NOTE: maybe faster than before reverse array when if use Array#filter, Array#find and etc.
+// NOTE: find backward is faster than find forward maybe
 export const holidays = baseHolidays.reverse().map(function (holiday) {
   const { date, name } = holiday;
 
@@ -61,11 +61,11 @@ export const holidayMap: HolidayMap = holidays.reduce(function (
 {});
 
 /**
- * get holiday data
+ * get holiday info
  *
  * @param date
  */
-export function getHolidayInfo(date: Date): HolidayEx | null {
+export function getHolidayInfo(date: Date): HolidayInfo | null {
   if (toString.call(date) !== '[object Date]') {
     throw new TypeError('date must be a Date: ' + date);
   }
