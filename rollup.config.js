@@ -71,7 +71,6 @@ if (process.env.data === 'umd') {
     {
       input: './index.ts',
       output: {
-        banner,
         file: `./dist/${meta.name}.min.js`,
         format: 'umd',
         name: meta.name,
@@ -87,8 +86,7 @@ if (process.env.data === 'umd') {
         terser({
           output: {
             preamble: banner
-          },
-          sourcemap: true
+          }
         })
       ]
     },
@@ -113,7 +111,6 @@ if (process.env.data === 'umd') {
     {
       input: './index.ts',
       output: {
-        banner,
         file: `./dist/${meta.name}.legacy.min.js`,
         format: 'umd',
         name: meta.name,
@@ -129,8 +126,7 @@ if (process.env.data === 'umd') {
         terser({
           output: {
             preamble: banner
-          },
-          sourcemap: true
+          }
         })
       ]
     }
