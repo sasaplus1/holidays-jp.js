@@ -1,3 +1,7 @@
+# 1.4.0 / 2021-02-07
+
+- update holidays data
+
 # 1.3.0 / 2020-12-01
 
 - update holidays data
