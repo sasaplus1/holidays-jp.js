@@ -1,12 +1,12 @@
 import { Holiday } from './data';
-declare type HolidayEx = Holiday & {
+export declare type HolidayInfo = Holiday & {
     endDate: Date;
     startDate: Date;
 };
-declare type HolidayMap = {
+export declare type HolidayMap = {
     [key: string]: {
         [key: string]: {
-            [key: string]: HolidayEx;
+            [key: string]: HolidayInfo;
         };
     };
 };
@@ -18,15 +18,14 @@ export declare const holidays: {
 }[];
 export declare const holidayMap: HolidayMap;
 /**
- * get holiday data
+ * get holiday info
  *
  * @param date
  */
-export declare function getHolidayInfo(date: Date): HolidayEx | null;
+export declare function getHolidayInfo(date: Date): HolidayInfo | null;
 /**
  * return true if date is holiday
  *
  * @param date
  */
 export declare function isHoliday(date: Date): boolean;
-export {};

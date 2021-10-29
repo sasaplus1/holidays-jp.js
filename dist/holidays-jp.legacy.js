@@ -3915,7 +3915,7 @@
   var toString = Object.prototype.toString;
   // NOTE: JST is UTC+9:00
   var jstOffset = 1000 * 60 * 60 * 9;
-  // NOTE: maybe faster than before reverse array when if use Array#filter, Array#find and etc.
+  // NOTE: find backward is faster than find forward maybe
   var holidays$1 = holidays.reverse().map(function (holiday) {
       var date = holiday.date, name = holiday.name;
       var _a = date.split('-').map(function (num) { return parseInt(num, 10); }), year = _a[0], month = _a[1], day = _a[2];
@@ -3941,7 +3941,7 @@
       return result;
   }, {});
   /**
-   * get holiday data
+   * get holiday info
    *
    * @param date
    */
