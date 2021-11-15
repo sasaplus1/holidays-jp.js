@@ -796,10 +796,10 @@ csv-parse@^4.6.3:
   resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-4.15.4.tgz#ad1ec62aaf71a642982dfcb81f1848184d691db5"
   integrity sha512-OdBbFc0yZhOm17lSxqkirrHlFFVpKRT0wp4DAGoJelsP3LbGzV9LNr7XmM/lrr0uGkCtaqac9UhP8PDHXOAbMg==
 
-csv-stringify@^5.6.2:
-  version "5.6.2"
-  resolved "https://registry.yarnpkg.com/csv-stringify/-/csv-stringify-5.6.2.tgz#e653783e2189c4c797fbb12abf7f4943c787caa9"
-  integrity sha512-n3rIVbX6ylm1YsX2NEug9IaPV8xRnT+9/NNZbrA/bcHgOSSeqtWla6XnI/xmyu57wIw+ASCAoX1oM6EZtqJV0A==
+csv-stringify@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/csv-stringify/-/csv-stringify-6.0.0.tgz#cb3c103b169c60d2b5e5b98680fb3584b17cd5ee"
+  integrity sha512-NVqs4oM9edyrbFCjD1VAAmWQlSwd2oKSrZZ9kGHWRxHmyEAwo+wzuECphcaqWAphPgA4JEC07Eo9Y+PlWERvaw==
 
 custom-event@~1.0.0:
   version "1.0.1"
