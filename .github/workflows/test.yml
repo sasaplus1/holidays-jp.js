@@ -25,7 +25,6 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run lint
       - run: yarn run test
-      - run: yarn run check-types
       - run: yarn run build
   karma-windows:
     name: karma on Windows
