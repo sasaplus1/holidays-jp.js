@@ -1,4 +1,4 @@
-const csvParse = require('csv-parse');
+const { parse: csvParse } = require('csv-parse');
 const prettier = require('prettier');
 const through2 = require('through2');
 

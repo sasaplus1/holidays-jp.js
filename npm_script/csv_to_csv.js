@@ -1,5 +1,5 @@
-const csvParse = require('csv-parse');
-const csvStringify = require('csv-stringify');
+const { parse: csvParse } = require('csv-parse');
+const { stringify: csvStringify } = require('csv-stringify');
 
 const { convertToIso8601 } = require('./convert');
 

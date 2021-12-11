@@ -1,4 +1,4 @@
-const csvParse = require('csv-parse');
+const { parse: csvParse } = require('csv-parse');
 const through2 = require('through2');
 
 const { convertToIso8601 } = require('./convert');
