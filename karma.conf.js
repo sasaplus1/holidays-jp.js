@@ -7,18 +7,10 @@ const meta = require('./package.json');
 module.exports = function (config) {
   config.set({
     basePath: path.resolve(__dirname),
-    browsers: ['ChromeHeadlessNoSandbox'],
+    browsers: ['ChromeHeadless'],
     client: {
       mocha: {
         reporter: 'html'
-      }
-    },
-    customLaunchers: {
-      // NOTE: https://docs.travis-ci.com/user/chrome#Sandboxing
-      ChromeHeadlessNoSandbox: {
-        base: 'ChromeHeadless',
-        chromeDataDir: path.resolve(__dirname, '.chrome'),
-        flags: ['--no-sandbox']
       }
     },
     files: [
