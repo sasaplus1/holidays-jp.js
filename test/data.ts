@@ -3,7 +3,7 @@
 import assert = require('assert');
 import * as fs from 'fs';
 
-import * as csvParse from 'csv-parse';
+import { parse } from 'csv-parse';
 
 const ltsv = require('ltsv');
 
@@ -11,7 +11,7 @@ import { Holiday } from '../data';
 
 describe('data', function () {
   it('should can parse CSV', function (done) {
-    const parser = csvParse();
+    const parser = parse();
 
     parser.on('readable', function () {
       let record;
@@ -66,7 +66,7 @@ describe('data', function () {
   });
   it('should can parse ES Module');
   it('should can parse TSV', function (done) {
-    const parser = csvParse({
+    const parser = parse({
       delimiter: '\t'
     });
 
