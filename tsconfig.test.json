@@ -1,0 +1,15 @@
+{
+  "extends": "@tsconfig/node14/tsconfig.json",
+  "compilerOptions": {
+    "composite": false,
+    "newLine": "lf",
+    "noEmit": true
+  },
+  "include": [
+    "./test/*.ts"
+  ],
+  "ts-node": {
+    "files": true,
+    "transpileOnly": true
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "extends": "@tsconfig/node14/tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "newLine": "lf",
+    "sourceMap": true
+  },
+  "files": [
+    "data.ts",
+    "index.ts"
+  ]
+}
