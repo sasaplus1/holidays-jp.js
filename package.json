@@ -61,7 +61,7 @@
   "scripts": {
     "build": "run-p -l build:*",
     "build-documents": "typedoc",
-    "build:cjs": "tsc",
+    "build:cjs": "tsc --build",
     "build:esm": "rollup -c --environment data:esm",
     "build:umd": "rollup -c --environment data:umd",
     "download": "node ./npm_script/download.js",
@@ -78,7 +78,7 @@
     "lint": "run-s lint:*",
     "lint:eslint": "eslint --cache --ext .js,.ts .",
     "lint:prettier": "prettier --check '**/*.(js|ts)'",
-    "lint:tsc": "tsc --noEmit",
+    "lint:tsc": "ls -1 ./tsconfig.*.json | xargs -n 1 tsc --noEmit -p",
     "postbuild:esm": "prettier --parser babel --write ./index.mjs ./data.mjs",
     "postgenerate": "rimraf ./syukujitsu.csv",
     "postgenerate:ts": "prettier --parser typescript --write ./data.ts",
