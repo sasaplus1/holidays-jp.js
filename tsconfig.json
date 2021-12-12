@@ -1,13 +1,11 @@
 {
-  "compilerOptions": {
-    "declaration": true,
-    "module": "CommonJS",
-    "newLine": "lf",
-    "sourceMap": true,
-    "strict": true,
-    "target": "ESNext"
-  },
-  "files": [
-    "index.ts"
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.main.json"
+    },
+    {
+      "path": "./tsconfig.test.json"
+    }
   ]
 }
