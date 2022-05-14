@@ -1,5 +1,4 @@
 !.*.js
 *.d.ts
-data.js
-dist/**/*.js
-index.js
+/dist/**/*.js
+/index.js
