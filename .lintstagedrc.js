@@ -1,9 +1,6 @@
 module.exports = {
-  '*.+(js|ts)': ['eslint', 'prettier --check'],
-  '*.+(md|yml)': 'prettier --check',
-  'package.json': [
-    'npx fixpack --dryRun',
-    'prettier --check --parser json-stringify'
-  ],
-  'package-lock.json': 'node -e "process.exit(1)"'
+  '*.+(js|mjs|ts)': ['eslint', 'prettier --check'],
+  '*.+(json|md|yml)': 'prettier --check',
+  'package.json': 'npx fixpack --dryRun',
+  'package-lock.json': 'node -e "process.exitCode = 1"'
 };
