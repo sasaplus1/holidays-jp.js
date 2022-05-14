@@ -78,6 +78,7 @@
     "generate:tsv": "node ./npm_script/csv_to_tsv.js < ./syukujitsu.csv > ./dist/data.tsv",
     "lint": "run-s lint:*",
     "lint:eslint": "eslint --cache --ext .js,.ts .",
+    "lint:fixpack": "npx fixpack --dryRun",
     "lint:prettier": "prettier --check '**/*.(js|ts)'",
     "lint:tsc": "ls -1 ./tsconfig.*.json | xargs -n 1 tsc --noEmit -p",
     "postbuild:esm": "prettier --parser babel --write ./index.mjs ./dist/data.mjs",
