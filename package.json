@@ -84,6 +84,7 @@
     "postgenerate": "rimraf ./syukujitsu.csv",
     "postgenerate:ts": "prettier --parser typescript --write ./data.ts",
     "pregenerate": "run-s -s download > ./syukujitsu.csv",
+    "prepare": "is-ci || husky install",
     "pretest": "run-s build:cjs",
     "pretest:browser": "run-s build:umd",
     "test": "mocha",
