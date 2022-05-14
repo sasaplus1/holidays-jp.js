@@ -9,7 +9,6 @@
   },
   "browser": "dist/holidays-jp.js",
   "devDependencies": {
-    "@tsconfig/node14": "^1.0.1",
     "@tsconfig/recommended": "^1.0.1",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.0.0",
