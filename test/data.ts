@@ -7,7 +7,7 @@ import { parse } from 'csv-parse';
 
 const ltsv = require('ltsv');
 
-import { Holiday } from '../data';
+import { Holiday } from '../dist/data';
 
 describe('data', function () {
   it('should can parse CSV', function (done) {
@@ -23,11 +23,11 @@ describe('data', function () {
     parser.on('error', done);
     parser.on('end', done);
 
-    fs.createReadStream(require.resolve('../data.csv')).pipe(parser);
+    fs.createReadStream(require.resolve('../dist/data.csv')).pipe(parser);
   });
   it('should can parse JavaScript', function () {
     assert.doesNotThrow(function () {
-      const data: { holidays: Holiday[] } = require('../data.js');
+      const data: { holidays: Holiday[] } = require('../dist/data.js');
 
       const { holidays } = data;
 
@@ -38,7 +38,7 @@ describe('data', function () {
   });
   it('should can parse JSON', function () {
     assert.doesNotThrow(function () {
-      const data: { holidays: Holiday[] } = require('../data.json');
+      const data: { holidays: Holiday[] } = require('../dist/data.json');
 
       const { holidays } = data;
 
@@ -62,7 +62,7 @@ describe('data', function () {
     parser.on('error', done);
     parser.on('end', done);
 
-    fs.createReadStream(require.resolve('../data.ltsv')).pipe(parser);
+    fs.createReadStream(require.resolve('../dist/data.ltsv')).pipe(parser);
   });
   it('should can parse ES Module');
   it('should can parse TSV', function (done) {
@@ -80,11 +80,11 @@ describe('data', function () {
     parser.on('error', done);
     parser.on('end', done);
 
-    fs.createReadStream(require.resolve('../data.tsv')).pipe(parser);
+    fs.createReadStream(require.resolve('../dist/data.tsv')).pipe(parser);
   });
   it('should can parse TypeScript', function () {
     assert.doesNotThrow(function () {
-      const data: { holidays: Holiday[] } = require('../data.ts');
+      const data: { holidays: Holiday[] } = require('../dist/data.ts');
 
       const { holidays } = data;
 

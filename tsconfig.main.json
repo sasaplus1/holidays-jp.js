@@ -7,7 +7,7 @@
     "sourceMap": true
   },
   "files": [
-    "data.ts",
+    "dist/data.ts",
     "index.ts"
   ]
 }

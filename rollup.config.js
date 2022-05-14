@@ -8,9 +8,9 @@ const config = [];
 if (process.env.data === 'esm') {
   config.push(
     {
-      input: './data.ts',
+      input: './dist/data.ts',
       output: {
-        file: './data.mjs',
+        file: './dist/data.mjs',
         format: 'esm'
       },
       plugins: [
