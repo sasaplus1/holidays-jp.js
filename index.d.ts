@@ -1,4 +1,4 @@
-import { Holiday } from './data';
+import { Holiday } from './dist/data';
 export declare type HolidayInfo = Holiday & {
     endDate: Date;
     startDate: Date;

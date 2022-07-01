@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isHoliday = exports.getHolidayInfo = exports.holidayMap = exports.holidays = void 0;
-const data_1 = require("./data");
+const data_1 = require("./dist/data");
 const toString = Object.prototype.toString;
 // NOTE: JST is UTC+9:00
 const jstOffset = 1000 * 60 * 60 * 9;
