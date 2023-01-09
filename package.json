@@ -8,6 +8,9 @@
     "holidays-jp": "bin/holidays-jp.js"
   },
   "browser": "dist/holidays-jp.js",
+  "dependencies": {
+    "japanese-public-holidays": "^3.0.6"
+  },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
     "@types/mocha": "^9.0.0",

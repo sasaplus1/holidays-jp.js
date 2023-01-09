@@ -2047,6 +2047,11 @@ isurl@^1.0.0-alpha5:
     has-to-string-tag-x "^1.2.0"
     is-object "^1.0.1"
 
+japanese-public-holidays@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/japanese-public-holidays/-/japanese-public-holidays-3.0.6.tgz#279f2affa9622f170a5120d176b5b0aef3839a58"
+  integrity sha512-Jn99MGfsoGtaOWec+P0mN0QJKMARV/f/xvR4++8WY6ei2TwyngP68BC39w7JtltimKaUZNmiIqGVoXgv0xrh4w==
+
 jest-worker@^26.2.1:
   version "26.3.0"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-26.3.0.tgz#7c8a97e4f4364b4f05ed8bca8ca0c24de091871f"
