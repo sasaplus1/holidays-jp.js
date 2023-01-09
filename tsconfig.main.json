@@ -6,5 +6,8 @@
     "newLine": "lf",
     "sourceMap": true
   },
-  "files": ["dist/data.ts", "index.ts"]
+  "files": [
+    "dist/data.ts",
+    "index.ts"
+  ]
 }
