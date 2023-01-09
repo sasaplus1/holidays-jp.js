@@ -23,23 +23,6 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run lint
       - run: yarn run test
-  generate-and-build:
-    name: generate and build
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
-    strategy:
-      matrix:
-        node:
-          - lts/*
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-          cache: yarn
-      - run: npm install -g yarn
-      - run: yarn install --frozen-lockfile
-      - run: yarn run generate
       - run: yarn run build
   karma-windows:
     name: karma on Windows
