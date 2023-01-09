@@ -1,7 +1,9 @@
-import { Holiday, holidays as baseHolidays } from './dist/data';
+import { holidays as baseHolidays } from 'japanese-public-holidays';
 
-export type HolidayInfo = Holiday & {
+export type HolidayInfo = {
+  date: string;
   endDate: Date;
+  name: string;
   startDate: Date;
 };
 
