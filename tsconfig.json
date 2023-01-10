@@ -1,11 +1,14 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.main.json"
-    },
-    {
-      "path": "./tsconfig.test.json"
-    }
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outDir": "./dist/cjs",
+    "sourceMap": true,
+    "target": "ESNext"
+  },
+  "files": [
+    "./index.ts"
   ]
 }
