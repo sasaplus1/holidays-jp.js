@@ -77,7 +77,6 @@
     "lint:eslint": "eslint .",
     "lint:fixpack": "npx fixpack --dryRun",
     "lint:prettier": "prettier --check .",
-    "lint:tsc": "ls -1 ./tsconfig.*.json | xargs -n 1 tsc --noEmit -p",
     "postbuild:esm": "prettier --parser babel --write ./index.mjs ./dist/data.mjs",
     "pretest": "run-s build:cjs",
     "pretest:browser": "run-s build:umd",
