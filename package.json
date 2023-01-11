@@ -7,7 +7,6 @@
     "holiday": "bin/holidays-jp.js",
     "holidays-jp": "bin/holidays-jp.js"
   },
-  "browser": "dist/holidays-jp.js",
   "dependencies": {
     "japanese-public-holidays": "^3.0.6"
   },
@@ -29,17 +28,19 @@
   "engines": {
     "node": ">=8.3"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
   "files": [
     "bin/holidays-jp.js",
-    "data.*",
-    "index.d.ts",
-    "index.js",
-    "index.js.map",
-    "index.mjs"
+    "dist/*"
   ],
   "license": "MIT",
-  "main": "index.js",
-  "module": "index.mjs",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
   "prettier": {
     "singleQuote": true,
     "trailingComma": "none",
@@ -76,5 +77,5 @@
     "test": "node --test"
   },
   "sideEffects": false,
-  "types": "index.d.ts"
+  "types": "./dist/index.d.ts"
 }
