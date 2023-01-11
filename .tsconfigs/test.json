@@ -4,7 +4,7 @@
   "compilerOptions": {
     "module": "CommonJS",
     "moduleResolution": "Node",
-    "outFile": "index.test.js",
+    "outDir": "..",
     "target": "ESNext"
   },
   "files": [
