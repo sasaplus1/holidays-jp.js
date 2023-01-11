@@ -67,6 +67,7 @@
     "lint:fixpack": "npx fixpack --dryRun",
     "lint:prettier": "prettier --check .",
     "lint:tsc": "tsc -p .tsconfigs/lint.json",
+    "posttest": "rm -f index.test.js",
     "pretest": "tsc -p .tsconfigs/cjs.json && tsc -p .tsconfigs/test.json",
     "test": "node --test"
   },
