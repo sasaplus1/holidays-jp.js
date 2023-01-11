@@ -67,10 +67,8 @@
     "lint:fixpack": "npx fixpack --dryRun",
     "lint:prettier": "prettier --check .",
     "lint:tsc": "tsc -p .tsconfigs/lint.json",
-    "pretest": "run-s build:cjs",
-    "pretest:browser": "run-s build:umd",
-    "test": "mocha",
-    "test:browser": "karma start --single-run"
+    "pretest": "tsc -p .tsconfigs/cjs.json && tsc -p .tsconfigs/test.json",
+    "test": "node --test"
   },
   "sideEffects": false,
   "types": "index.d.ts"
