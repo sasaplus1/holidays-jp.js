@@ -7,8 +7,6 @@
     ":assignee(sasaplus1)",
     ":timezone(Asia/Tokyo)",
     "group:definitelyTyped",
-    "group:jsUnitTest",
-    "group:linters",
-    "group:postcss"
+    "group:linters"
   ]
 }
