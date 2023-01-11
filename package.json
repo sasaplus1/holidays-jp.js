@@ -66,6 +66,7 @@
     "lint:eslint": "eslint .",
     "lint:fixpack": "npx fixpack --dryRun",
     "lint:prettier": "prettier --check .",
+    "lint:tsc": "tsc -p .tsconfigs/lint.json",
     "pretest": "run-s build:cjs",
     "pretest:browser": "run-s build:umd",
     "test": "mocha",
