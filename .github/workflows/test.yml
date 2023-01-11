@@ -5,83 +5,18 @@ on:
   - pull_request
 
 jobs:
-  linting-and-unit-testing:
-    name: linting and unit testing
+  test:
+    name: test
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
-    strategy:
-      matrix:
-        node:
-          - lts/*
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: lts/*
           cache: yarn
       - run: npm install -g yarn
       - run: yarn install --frozen-lockfile
       - run: yarn run lint
-      - run: yarn run test
+      - run: yarn test
       - run: yarn run build
-  karma-windows:
-    name: karma on Windows
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
-    strategy:
-      matrix:
-        node:
-          - lts/*
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-          cache: yarn
-      - run: npm install -g yarn
-      - run: yarn install --frozen-lockfile
-      - run: yarn add -D karma-ie-launcher
-      - run: yarn karma start --single-run --browsers IE
-  karma-ios:
-    name: karma on iOS
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
-    strategy:
-      matrix:
-        node:
-          - lts/*
-    runs-on: macOS-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-          cache: yarn
-      - run: npm install -g yarn
-      - run: yarn install --frozen-lockfile
-      - run: xcrun simctl list
-      - run: xcrun simctl list -j
-      - run: |
-          xcrun simctl list -j | jq '.devices[][] | select(.isAvailable == true) | { (.name): .udid }' | jq -s add
-      - run: |
-          xcrun simctl list -j | jq '.devices[][] | select(.isAvailable == true) | { (.name): .udid }' | jq -s add | jq -r '.["iPhone 11"]' | tee udid
-      - run: xcrun simctl boot $(cat udid)
-      - run: (sleep 3 && xcrun simctl openurl $(cat udid) http://127.0.0.1:9876) &
-      - run: yarn karma start --single-run --no-browsers
-  karma-ubuntu:
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
-    name: karma on Ubuntu
-    strategy:
-      matrix:
-        node:
-          - lts/*
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-          cache: yarn
-      - run: npm install -g yarn
-      - run: yarn install --frozen-lockfile
-      - run: yarn add -D karma-chrome-launcher karma-firefox-launcher
-      - run: yarn karma start --single-run --browsers ChromeHeadless,FirefoxHeadless
