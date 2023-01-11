@@ -57,9 +57,9 @@
   },
   "scripts": {
     "build": "run-p -l build:*",
-    "build:cjs": "swc -C module.type=commonjs -o dist/index.cjs index.ts",
-    "build:esm": "swc -C module.type=es6 -o dist/index.mjs index.ts",
-    "build:tsc": "tsc",
+    "build:cjs": "tsc -p .tsconfigs/cjs.json",
+    "build:dts": "tsc -p .tsconfigs/dts.json",
+    "build:esm": "tsc -p .tsconfigs/esm.json",
     "fix": "run-s fix:*",
     "fix:eslint": "eslint --fix .",
     "fix:fixpack": "npx fixpack",
