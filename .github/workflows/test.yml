@@ -17,6 +17,6 @@ jobs:
           cache: yarn
       - run: npm install -g yarn
       - run: yarn install --frozen-lockfile
+      - run: yarn run build
       - run: yarn run lint
       - run: yarn test
-      - run: yarn run build
