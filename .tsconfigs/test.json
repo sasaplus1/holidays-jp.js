@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outFile": "index.test.js",
+    "target": "ESNext"
+  },
+  "files": [
+    "../index.test.ts"
+  ]
+}
