@@ -1,6 +1,7 @@
-import assert = require('assert');
+import { strict as assert } from 'node:assert';
+import { describe, it } from 'node:test';
 
-import { getHolidayInfo, isHoliday } from '../';
+import { getHolidayInfo, isHoliday } from './dist/cjs/index.js';
 
 describe('holidays-jp', function () {
   const jstOffset = 1000 * 60 * 60 * 9;
