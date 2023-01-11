@@ -97,3 +97,7 @@ typings/
 # GitHub Pages
 # $ git worktree docs gh-pages
 docs/
+
+### holidays-jp.js
+
+/index.test.js

@@ -1,39 +1,63 @@
-module.exports = {
-  env: {
-    es6: true,
-    node: true
-  },
-  extends: ['eslint:recommended', 'plugin:node/recommended', 'prettier'],
-  overrides: [
-    {
-      extends: [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/eslint-recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:node/recommended-module',
-        'prettier'
-      ],
-      files: ['**/*.ts'],
-      parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint'],
-      settings: {
-        node: {
-          tryExtensions: ['.ts', '.js', '.json', '.node']
-        }
-      }
-    },
-    {
-      extends: [
-        'eslint:recommended',
-        'plugin:node/recommended-module',
-        'prettier'
-      ],
-      files: ['rollup.config.js']
-    }
-  ],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module'
-  },
-  root: true
+const typescriptExtends = [
+  'eslint:recommended',
+  'plugin:@typescript-eslint/eslint-recommended',
+  'plugin:@typescript-eslint/recommended',
+  'plugin:node/recommended-module',
+  'prettier'
+];
+
+const typescriptPlugins = ['eslint-plugin-tsdoc'];
+
+const tsdocRules = {
+  'tsdoc/syntax': 'warn'
 };
+
+const tryExtensions = ['.d.ts', '.tsx', '.ts', '.jsx', '.js', '.json'];
+
+const config = {};
+const overrides = [];
+
+overrides.push({
+  extends: typescriptExtends,
+  excludedFiles: '*.test.ts',
+  files: ['./**/*.ts'],
+  plugins: [...typescriptPlugins],
+  rules: {
+    ...tsdocRules
+  },
+  settings: {
+    node: {
+      tryExtensions
+    }
+  }
+});
+
+overrides.push({
+  extends: typescriptExtends,
+  files: ['./**/*.test.ts'],
+  plugins: [...typescriptPlugins],
+  rules: {
+    ...tsdocRules
+  },
+  settings: {
+    node: {
+      // NOTE: no effect
+      // allowModules: ['node:assert', 'node:test'],
+      tryExtensions
+    }
+  }
+});
+
+config.env = {
+  es6: true,
+  node: true
+};
+config.extends = ['eslint:recommended', 'plugin:node/recommended', 'prettier'];
+config.overrides = overrides;
+config.parserOptions = {
+  ecmaVersion: 'latest',
+  sourceType: 'module'
+};
+config.root = true;
+
+module.exports = config;

@@ -7,15 +7,11 @@
     "holiday": "bin/holidays-jp.js",
     "holidays-jp": "bin/holidays-jp.js"
   },
-  "browser": "dist/holidays-jp.js",
   "dependencies": {
     "japanese-public-holidays": "^3.0.6"
   },
   "devDependencies": {
-    "@swc/cli": "^0.1.59",
-    "@swc/core": "^1.3.25",
     "@tsconfig/recommended": "^1.0.1",
-    "@types/mocha": "^9.0.0",
     "@types/node": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
@@ -23,28 +19,28 @@
     "eslint": "^8.0.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-node": "^11.0.0",
-    "espower-typescript": "^10.0.0",
-    "karma": "^6.1.0",
-    "karma-chrome-launcher": "^3.1.0",
-    "karma-mocha": "^2.0.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
     "ltsv": "^2.0.0",
-    "mocha": "^9.0.0",
     "npm-run-all": "^4.1.5",
-    "power-assert": "^1.6.1",
     "prettier": "^2.2.1",
     "typescript": "^4.0.0"
   },
+  "engines": {
+    "node": ">=8.3"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
   "files": [
     "bin/holidays-jp.js",
-    "data.*",
-    "index.d.ts",
-    "index.js",
-    "index.js.map",
-    "index.mjs"
+    "dist/*"
   ],
   "license": "MIT",
-  "main": "index.js",
-  "module": "index.mjs",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
   "prettier": {
     "singleQuote": true,
     "trailingComma": "none",
@@ -64,9 +60,9 @@
   },
   "scripts": {
     "build": "run-p -l build:*",
-    "build:cjs": "swc -C module.type=commonjs -o dist/index.cjs index.ts",
-    "build:esm": "swc -C module.type=es6 -o dist/index.mjs index.ts",
-    "build:tsc": "tsc",
+    "build:cjs": "tsc -p .tsconfigs/cjs.json",
+    "build:dts": "tsc -p .tsconfigs/dts.json",
+    "build:esm": "tsc -p .tsconfigs/esm.json",
     "fix": "run-s fix:*",
     "fix:eslint": "eslint --fix .",
     "fix:fixpack": "npx fixpack",
@@ -75,11 +71,11 @@
     "lint:eslint": "eslint .",
     "lint:fixpack": "npx fixpack --dryRun",
     "lint:prettier": "prettier --check .",
-    "pretest": "run-s build:cjs",
-    "pretest:browser": "run-s build:umd",
-    "test": "mocha",
-    "test:browser": "karma start --single-run"
+    "lint:tsc": "tsc -p .tsconfigs/lint.json",
+    "posttest": "rm -f index.test.js",
+    "pretest": "tsc -p .tsconfigs/cjs.json && tsc -p .tsconfigs/test.json",
+    "test": "node --test"
   },
   "sideEffects": false,
-  "types": "index.d.ts"
+  "types": "./dist/index.d.ts"
 }

@@ -1,6 +1,10 @@
-import assert = require('assert');
+/* eslint-disable node/no-missing-import */
+// TODO: migrate to eslint-plugin-n
+import { strict as assert } from 'node:assert';
+import { describe, it } from 'node:test';
+/* eslint-enable node/no-missing-import */
 
-import { getHolidayInfo, isHoliday } from '../';
+import { getHolidayInfo, isHoliday } from './dist/cjs/index.js';
 
 describe('holidays-jp', function () {
   const jstOffset = 1000 * 60 * 60 * 9;
