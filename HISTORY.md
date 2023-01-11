@@ -1,3 +1,8 @@
+# 2.0.0 / 2023-01-11
+
+- drop UMD support
+- use [japanese-public-holidays](https://github.com/sasaplus1/japanese-public-holidays)
+
 # 1.4.0 / 2021-02-07
 
 - update holidays data

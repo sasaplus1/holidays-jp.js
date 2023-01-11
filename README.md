@@ -1,10 +1,8 @@
 # holidays-jp.js
 
 [![test](https://github.com/sasaplus1/holidays-jp.js/workflows/test/badge.svg)](https://github.com/sasaplus1/holidays-jp.js/actions?query=workflow%3Atest)
-[![update](https://github.com/sasaplus1/holidays-jp.js/workflows/update/badge.svg)](https://github.com/sasaplus1/holidays-jp.js/actions?query=workflow%3Aupdate)
 [![npm version](https://badge.fury.io/js/holidays-jp.svg)](https://badge.fury.io/js/holidays-jp)
 [![Try holidays-jp on RunKit](https://badge.runkitcdn.com/holidays-jp.svg)](https://npm.runkit.com/holidays-jp)
-[![renovate](https://badges.renovateapi.com/github/sasaplus1/holidays-jp.js)](https://renovatebot.com)
 
 get Japanese public holidays
 
@@ -42,10 +40,6 @@ const date = new Date(2019, 1 - 1, 1, 0, 0, 0, 0);
 holidays.getHolidayInfo(date); // => { date: '2019-01-01', name: '元日', ... }
 ```
 
-## Functions
-
-see [documents](https://sasaplus1.github.io/holidays-jp.js)
-
 ### CLI
 
 holidays-jp.js has CLI command:
@@ -72,32 +66,9 @@ $ echo $?
 1
 ```
 
-## holidays data
-
-holidays-jp.js has some format holidays data, it converted from [syukujitsu.csv](https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv):
-
-```js
-const fs = require('fs');
-
-const js = require('holidays-jp/data.js');
-const json = require('holidays-jp/data.json');
-
-const csv = fs.readFileSync(require.resolve('holidays-jp/data.csv'), 'utf8');
-const tsv = fs.readFileSync(require.resolve('holidays-jp/data.tsv'), 'utf8');
-const ltsv = fs.readFileSync(require.resolve('holidays-jp/data.ltsv'), 'utf8');
-```
-
-```js
-import data from 'holidays-jp/data.mjs';
-```
-
-```ts
-import data from 'holidays-jp/data.ts';
-```
-
 ### Related
 
-[「国民の祝日」について](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html)
+- [sasaplus1/japanese-public-holidays](https://github.com/sasaplus1/japanese-public-holidays)
 
 ## License
 
