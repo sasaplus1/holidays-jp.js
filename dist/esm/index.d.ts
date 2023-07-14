@@ -21,12 +21,14 @@ export declare const holidayMap: HolidayMap;
 /**
  * get holiday info
  *
- * @param date
+ * @param date - target date
+ * @returns return holiday info if date is holiday, otherwise return null
  */
 export declare function getHolidayInfo(date: Date): HolidayInfo | null;
 /**
  * return true if date is holiday
  *
- * @param date
+ * @param date - target date
+ * @returns return true if date is holiday
  */
 export declare function isHoliday(date: Date): boolean;
