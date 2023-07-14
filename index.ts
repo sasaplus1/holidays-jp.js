@@ -59,15 +59,10 @@ export const holidayMap: HolidayMap = holidays.reduce(function (
     return result;
   }
 
-  if (!result[year]) {
-    result[year] = {};
-  }
+  const yearObject = ensureKey(result, year);
+  const monthObject = ensureKey(yearObject, month);
 
-  if (!result[year]![month]) {
-    result[year]![month] = {};
-  }
-
-  result[year]![month]![day] = holiday;
+  monthObject[day] = holiday;
 
   return result;
 }, {});
@@ -92,7 +87,10 @@ export function getHolidayInfo(date: Date): HolidayInfo | null {
   const month = m < 10 ? `0${m}` : String(m);
   const day = d < 10 ? `0${d}` : String(d);
 
-  const result = holidayMap[year]?.[month]?.[day];
+  const yearObject = ensureKey(holidayMap, year);
+  const monthObject = ensureKey(yearObject, month);
+
+  const result = monthObject[day];
 
   return result === undefined ? null : result;
 }
@@ -122,4 +120,18 @@ const toString = Object.prototype.toString;
  */
 function isDate(value: unknown): value is Date {
   return toString.call(value) === '[object Date]';
+}
+
+/**
+ * for TS2532
+ *
+ * @param object - target object
+ * @returns object
+ */
+function ensureKey<T>(object: Record<string, T | undefined>, key: string): T {
+  if (!object[key]) {
+    object[key] = {} as T;
+  }
+
+  return object[key]!;
 }

@@ -31,13 +31,9 @@ exports.holidayMap = exports.holidays.reduce(function (result, holiday) {
     if (year === undefined || month === undefined || day === undefined) {
         return result;
     }
-    if (!result[year]) {
-        result[year] = {};
-    }
-    if (!result[year][month]) {
-        result[year][month] = {};
-    }
-    result[year][month][day] = holiday;
+    const yearObject = ensureKey(result, year);
+    const monthObject = ensureKey(yearObject, month);
+    monthObject[day] = holiday;
     return result;
 }, {});
 /**
@@ -56,7 +52,9 @@ function getHolidayInfo(date) {
     const year = String(jstDate.getUTCFullYear());
     const month = m < 10 ? `0${m}` : String(m);
     const day = d < 10 ? `0${d}` : String(d);
-    const result = exports.holidayMap[year]?.[month]?.[day];
+    const yearObject = ensureKey(exports.holidayMap, year);
+    const monthObject = ensureKey(yearObject, month);
+    const result = monthObject[day];
     return result === undefined ? null : result;
 }
 exports.getHolidayInfo = getHolidayInfo;
@@ -83,5 +81,17 @@ const toString = Object.prototype.toString;
  */
 function isDate(value) {
     return toString.call(value) === '[object Date]';
+}
+/**
+ * for TS2532
+ *
+ * @param object - target object
+ * @returns object
+ */
+function ensureKey(object, key) {
+    if (!object[key]) {
+        object[key] = {};
+    }
+    return object[key];
 }
 //# sourceMappingURL=index.js.map
