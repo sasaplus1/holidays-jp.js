@@ -2,15 +2,22 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isHoliday = exports.getHolidayInfo = exports.holidayMap = exports.holidays = void 0;
 const japanese_public_holidays_1 = require("japanese-public-holidays");
-const toString = Object.prototype.toString;
 // NOTE: JST is UTC+9:00
-const jstOffset = 1000 * 60 * 60 * 9;
+const jstOffsetHour = 1000 * 60 * 60 * 9;
 // NOTE: find backward is faster than find forward maybe
 exports.holidays = japanese_public_holidays_1.holidays.reverse().map(function (holiday) {
     const { date, name } = holiday;
-    const [year, month, day] = date.split('-').map((num) => parseInt(num, 10));
-    const startDate = new Date(Date.UTC(year, month - 1, day, 0, 0, 0, 0) - jstOffset);
-    const endDate = new Date(Date.UTC(year, month - 1, day + 1, 0, 0, 0, 0) - jstOffset - 1);
+    const [year, month, day] = date.split('-').map(Number);
+    if (year === undefined || month === undefined || day === undefined) {
+        return {
+            date,
+            endDate: new Date(''),
+            name,
+            startDate: new Date('')
+        };
+    }
+    const startDate = new Date(Date.UTC(year, month - 1, day, 0, 0, 0, 0) - jstOffsetHour);
+    const endDate = new Date(Date.UTC(year, month - 1, day + 1, 0, 0, 0, 0) - jstOffsetHour - 1);
     return {
         date,
         endDate,
@@ -21,6 +28,9 @@ exports.holidays = japanese_public_holidays_1.holidays.reverse().map(function (h
 exports.holidayMap = exports.holidays.reduce(function (result, holiday) {
     const { date } = holiday;
     const [year, month, day] = date.split('-');
+    if (year === undefined || month === undefined || day === undefined) {
+        return result;
+    }
     if (!result[year]) {
         result[year] = {};
     }
@@ -33,36 +43,45 @@ exports.holidayMap = exports.holidays.reduce(function (result, holiday) {
 /**
  * get holiday info
  *
- * @param date
+ * @param date - target date
+ * @returns return holiday info if date is holiday, otherwise return null
  */
 function getHolidayInfo(date) {
-    if (toString.call(date) !== '[object Date]') {
+    if (!isDate(date)) {
         throw new TypeError('date must be a Date: ' + date);
     }
-    const jstDate = new Date(date.getTime() + jstOffset);
+    const jstDate = new Date(date.getTime() + jstOffsetHour);
     const m = jstDate.getUTCMonth() + 1;
     const d = jstDate.getUTCDate();
     const year = String(jstDate.getUTCFullYear());
     const month = m < 10 ? `0${m}` : String(m);
     const day = d < 10 ? `0${d}` : String(d);
-    if (exports.holidayMap[year] &&
-        exports.holidayMap[year][month] &&
-        exports.holidayMap[year][month][day]) {
-        return exports.holidayMap[year][month][day];
-    }
-    return null;
+    const result = exports.holidayMap[year]?.[month]?.[day];
+    return result === undefined ? null : result;
 }
 exports.getHolidayInfo = getHolidayInfo;
 /**
  * return true if date is holiday
  *
- * @param date
+ * @param date - target date
+ * @returns return true if date is holiday
  */
 function isHoliday(date) {
-    if (toString.call(date) !== '[object Date]') {
+    if (!isDate(date)) {
         throw new TypeError('date must be a Date: ' + date);
     }
     return getHolidayInfo(date) !== null;
 }
 exports.isHoliday = isHoliday;
+/** cache of Object.prototype.toString */
+const toString = Object.prototype.toString;
+/**
+ * return true if date is Date instance
+ *
+ * @param value - target value
+ * @returns return true if value is date
+ */
+function isDate(value) {
+    return toString.call(value) === '[object Date]';
+}
 //# sourceMappingURL=index.js.map
