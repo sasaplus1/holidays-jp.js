@@ -1,3 +1,8 @@
+# 2.0.1 / 2023-07-14
+
+- maintenance
+- update holidays data
+
 # 2.0.0 / 2023-01-11
 
 - drop UMD support
