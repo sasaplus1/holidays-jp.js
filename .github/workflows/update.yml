@@ -1,0 +1,47 @@
+name: update
+
+on:
+  schedule:
+    # NOTE: at 7:50 am every day, JST
+    - cron: '50 22 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-data:
+    name: update data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - run: npm update japanese-public-holidays
+      - run: npm run build
+      - run: npm run lint
+      - run: npm test
+      - run: |
+          if git diff --exit-code --quiet
+          then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+        id: diff
+      - run: npm version patch --no-git-tag-version
+        if: steps.diff.outputs.changed == 'true'
+      - uses: peter-evans/create-pull-request@v5
+        with:
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          body: ''
+          branch: update japanese-public-holidays
+          commit-message: update japanese-public-holidays
+          delete-branch: true
+          reviewers: sasaplus1
+          title: update japanese-public-holidays
+        if: steps.diff.outputs.changed
