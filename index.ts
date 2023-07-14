@@ -70,8 +70,7 @@ export const holidayMap: HolidayMap = holidays.reduce(function (
   result[year]![month]![day] = holiday;
 
   return result;
-},
-{});
+}, {});
 
 /**
  * get holiday info
