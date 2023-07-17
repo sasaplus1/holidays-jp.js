@@ -39,7 +39,7 @@ jobs:
         with:
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           body: ''
-          branch: update japanese-public-holidays
+          branch: feature/update-japanese-public-holidays
           commit-message: update japanese-public-holidays
           delete-branch: true
           reviewers: sasaplus1
