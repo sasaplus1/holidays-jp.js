@@ -3,6 +3,7 @@
   "extends": "@tsconfig/strictest/tsconfig.json",
   "compilerOptions": {
     "declaration": true,
+    "esModuleInterop": true,
     "module": "CommonJS",
     "moduleResolution": "NodeNext",
     "outDir": "../dist/cjs",
