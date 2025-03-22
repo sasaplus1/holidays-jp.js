@@ -1,11 +1,15 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isHoliday = exports.getHolidayInfo = exports.holidayMap = exports.holidays = void 0;
-const japanese_public_holidays_1 = require("japanese-public-holidays");
+const japanese_public_holidays_1 = __importDefault(require("japanese-public-holidays"));
+const { holidays: baseHolidays } = japanese_public_holidays_1.default;
 // NOTE: JST is UTC+9:00
 const jstOffsetHour = 1000 * 60 * 60 * 9;
 // NOTE: find backward is faster than find forward maybe
-exports.holidays = japanese_public_holidays_1.holidays.reverse().map(function (holiday) {
+exports.holidays = baseHolidays.reverse().map(function (holiday) {
     const { date, name } = holiday;
     const [year, month, day] = date.split('-').map(Number);
     if (year === undefined || month === undefined || day === undefined) {

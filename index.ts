@@ -1,4 +1,4 @@
-import { holidays as baseHolidays } from 'japanese-public-holidays';
+import japanesePublicHolidays from 'japanese-public-holidays';
 
 export type HolidayInfo = {
   date: string;
@@ -14,6 +14,8 @@ export type HolidayMap = {
     };
   };
 };
+
+const { holidays: baseHolidays } = japanesePublicHolidays;
 
 // NOTE: JST is UTC+9:00
 const jstOffsetHour = 1000 * 60 * 60 * 9;
