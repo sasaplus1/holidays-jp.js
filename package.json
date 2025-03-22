@@ -28,9 +28,14 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "types": "./dist/index.d.ts"
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
     }
   },
   "files": [
@@ -60,7 +65,6 @@
   "scripts": {
     "build": "run-p -l build:*",
     "build:cjs": "tsc -p .tsconfigs/cjs.json",
-    "build:dts": "tsc -p .tsconfigs/dts.json",
     "build:esm": "tsc -p .tsconfigs/esm.json",
     "fix": "run-s fix:*",
     "fix:eslint": "eslint --fix .",
@@ -76,5 +80,5 @@
     "test": "node --test"
   },
   "sideEffects": false,
-  "types": "./dist/index.d.ts"
+  "types": "./dist/cjs/index.d.ts"
 }
