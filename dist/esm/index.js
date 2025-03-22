@@ -1,4 +1,5 @@
-import { holidays as baseHolidays } from 'japanese-public-holidays';
+import japanesePublicHolidays from 'japanese-public-holidays';
+const { holidays: baseHolidays } = japanesePublicHolidays;
 // NOTE: JST is UTC+9:00
 const jstOffsetHour = 1000 * 60 * 60 * 9;
 // NOTE: find backward is faster than find forward maybe
