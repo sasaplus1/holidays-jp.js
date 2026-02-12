@@ -13,14 +13,14 @@
   "devDependencies": {
     "@tsconfig/strictest": "2.0.8",
     "@types/node": "24.10.9",
-    "@typescript-eslint/eslint-plugin": "8.27.0",
-    "@typescript-eslint/parser": "8.27.0",
+    "@typescript-eslint/eslint-plugin": "8.55.0",
+    "@typescript-eslint/parser": "8.55.0",
     "eslint": "8.57.1",
-    "eslint-config-prettier": "10.1.1",
+    "eslint-config-prettier": "10.1.8",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-tsdoc": "0.4.0",
+    "eslint-plugin-tsdoc": "0.5.0",
     "npm-run-all2": "8.0.4",
-    "prettier": "3.5.3",
+    "prettier": "3.8.1",
     "typescript": "5.0.2"
   },
   "engines": {
